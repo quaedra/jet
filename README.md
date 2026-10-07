@@ -5,8 +5,9 @@ typed questions; it returns choices, scores, and probabilities without generatin
 free-form text. Answers always follow the requested type, but decisions can still
 be wrong.
 
+[Website](https://quaedra.com/jet) ·
+[Docs](https://quaedra.com/jet/docs/) ·
 [Model weights](https://huggingface.co/michaljach/jet) ·
-[Hugging Face demo](https://huggingface.co/spaces/michaljach/jet) ·
 [Training history](TRAINING_HISTORY.md) ·
 [Training run records](experiments/jet-focused-20260925/README.md)
 
