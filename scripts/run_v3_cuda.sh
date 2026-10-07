@@ -20,7 +20,7 @@ bash train_cuda.sh --base-model mlx-community/Qwen3-0.6B-bf16 \
     > logs/jet-v3/train.log 2>&1
 uv run --no-sync jet-calibrate --adapter "$RUN" --data data/calibration_v3.jsonl \
     --limit 10000 --batch-size 4 > logs/jet-v3/calibration.log 2>&1
-BASELINE=$(uv run --no-sync python -c 'from huggingface_hub import snapshot_download; print(snapshot_download("michaljach/jet-4b",revision="8a97cfea2df622bb03f5dc9b02567e21abd2551c"))')
+BASELINE=$(uv run --no-sync python -c 'from huggingface_hub import snapshot_download; print(snapshot_download("quaedra/jet",revision="8a97cfea2df622bb03f5dc9b02567e21abd2551c"))')
 for dataset in test score_eval test_v3_new; do
     uv run --no-sync jet-eval --base-model "$BASELINE" --data "data/$dataset.jsonl" \
         --batch-size 4 --json "docs/training/jet-v3/baseline-$dataset.json" > "logs/jet-v3/baseline-$dataset.log" 2>&1

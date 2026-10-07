@@ -23,7 +23,7 @@ for NAME in baseline v4 v5; do
  if [[ "$NAME" == v5 ]]; then ADAPTER=adapters/jet-v5-panel02-r2-20260924; fi
  OPTIONS=(--option model=mlx-community/Qwen3-0.6B-bf16 --option revision=42096995f6402fde107068cf530136fe64b604f8 --option adapter="$ADAPTER")
  if [[ "$NAME" == baseline ]]; then
-  OPTIONS=(--option model=michaljach/jet-4b --option revision=8a97cfea2df622bb03f5dc9b02567e21abd2551c)
+  OPTIONS=(--option model=quaedra/jet --option revision=8a97cfea2df622bb03f5dc9b02567e21abd2551c)
  fi
  .venv/bin/python -m decision_index run --engine decision_index_engine:JetEngine \
   --rows artifacts/decision-index/v5-diagnostic-1400/diagnostic.jsonl.gz \

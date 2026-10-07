@@ -43,8 +43,8 @@ partial diagnostics, not official scores.
 
 | Engine | Model | Backend |
 |---|---|---|
-| `decision_index_torch:TorchJetEngine` | Jet-4B: `michaljach/jet-4b` merged weights, or `Qwen/Qwen3.5-4B` plus an adapter | PyTorch, CUDA |
-| `decision_index_engine:JetEngine` | Jet 0.6B releases (v5 and earlier), default `michaljach/jet-4b` revision `25ccbd9e` (V5) | MLX (Metal, or CUDA on Linux) |
+| `decision_index_torch:TorchJetEngine` | Jet-4B: `quaedra/jet` merged weights, or `Qwen/Qwen3.5-4B` plus an adapter | PyTorch, CUDA |
+| `decision_index_engine:JetEngine` | Jet 0.6B releases (v5 and earlier), default `quaedra/jet` revision `25ccbd9e` (V5) | MLX (Metal, or CUDA on Linux) |
 | `decision_index_ensemble:TwoOrderJetEngine` | as `JetEngine`, averaging original and reversed option order | MLX |
 
 All engines share one request policy (`decision_index_engine.prepare_request`):
@@ -66,7 +66,7 @@ uv sync --extra benchmark --inexact
 uv run --no-sync python -m decision_index run --engine decision_index_torch:TorchJetEngine \
   --rows artifacts/decision-index/diagnostic/compatibility.jsonl.gz \
   --out artifacts/decision-index/runs/compatibility-v6 \
-  --option model=michaljach/jet-4b --option revision=e5b8f610ddb92ffaba596ae452bed32a9fef49ca \
+  --option model=quaedra/jet --option revision=e5b8f610ddb92ffaba596ae452bed32a9fef49ca \
   --option max_tokens=8192
 
 # Qwen3-0.6B releases with MLX on CUDA (the launcher sets up CUDA headers)

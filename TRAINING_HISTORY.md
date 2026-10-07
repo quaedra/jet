@@ -92,7 +92,7 @@ Superseded by v6.1 below.
 The released model continues from the full merged v6 backbone with a correction
 LoRA on 22,643 examples. Validation selected step 2,000 of 5,661. Two later repair
 trials were rejected by their sarcasm/retention guards and were not released.
-The release is a complete merged BF16 model in the existing `michaljach/jet-4b`
+The release is a complete merged BF16 model in the existing `quaedra/jet`
 repository, with the product name Jet. The previous release is archived as v6.0.0.
 
 The broad development evaluation covers 25 benchmarks and 67,459 requests,

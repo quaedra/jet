@@ -7,7 +7,7 @@ be wrong.
 
 [Website](https://quaedra.com/jet) ·
 [Docs](https://quaedra.com/jet/docs/) ·
-[Model weights](https://huggingface.co/michaljach/jet-4b) ·
+[Model weights](https://huggingface.co/quaedra/jet) ·
 [Training history](TRAINING_HISTORY.md) ·
 [Training run records](experiments/jet-focused-20260925/README.md)
 
@@ -24,7 +24,7 @@ ships the merged bf16 weights with the runtime from [`releases/jet-v6.2/`](relea
 `src/format.py` / `src/inference.py`.
 
 ```sh
-hf download michaljach/jet-4b --revision v6.2.0 --local-dir jet-4b
+hf download quaedra/jet --revision v6.2.0 --local-dir jet-4b
 cd jet-4b
 python -m pip install -r requirements.txt
 echo '{"state":"I was charged twice this month.","questions":{"billing":{"type":"noul","instructions":"Is this a billing issue?"}}}' | python jet.py
@@ -39,7 +39,7 @@ git clone https://github.com/quaedra/jet
 cd jet
 uv sync                  # Apple Silicon / Metal
 # Linux with NVIDIA: uv sync --extra cuda
-hf download michaljach/jet-4b --revision 25ccbd9e09c75643b3c2214e2b2522bec39171a7 --local-dir models/jet-0.6b
+hf download quaedra/jet --revision 25ccbd9e09c75643b3c2214e2b2522bec39171a7 --local-dir models/jet-0.6b
 JET_API_KEY=secret uv run jet-serve --base-model models/jet-0.6b
 ```
 

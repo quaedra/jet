@@ -12,7 +12,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from format import Question, label_token_ids
 from inference import encode, summarize
 
-MODEL_ID = "michaljach/jet-4b"
+MODEL_ID = "quaedra/jet"
 REVISION = "25ccbd9e09c75643b3c2214e2b2522bec39171a7"
 
 

@@ -19,7 +19,7 @@ for dataset in test score_eval test_v3_new test_v4_new test_v4_tools; do
 done
 for name in baseline v3 warm v4; do
   if [[ "$name" == baseline ]]; then
-    ARGS=(--option model=michaljach/jet-4b --option revision=8a97cfea2df622bb03f5dc9b02567e21abd2551c)
+    ARGS=(--option model=quaedra/jet --option revision=8a97cfea2df622bb03f5dc9b02567e21abd2551c)
   else
     case "$name" in
       v3) RUN=adapters/jet-v3-decision-20260923;;

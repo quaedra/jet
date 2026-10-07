@@ -6,7 +6,7 @@ colorTo: gray
 sdk: docker
 app_port: 7860
 models:
-  - michaljach/jet-4b
+  - quaedra/jet
 ---
 
 CPU inference for Jet using its quantized ONNX export. POST `/v1/decide` uses

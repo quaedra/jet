@@ -6,7 +6,7 @@ colorTo: gray
 sdk: static
 app_file: index.html
 models:
-  - michaljach/jet-4b
+  - quaedra/jet
 short_description: Server inference deployment pending. API source available.
 ---
 

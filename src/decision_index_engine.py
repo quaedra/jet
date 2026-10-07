@@ -17,7 +17,7 @@ from transformers import AutoTokenizer
 
 from format import MAX_CHOICE_OPTIONS, Question, build_prompt, label_token_ids
 
-MODEL_ID = "michaljach/jet-4b"
+MODEL_ID = "quaedra/jet"
 REVISION = "25ccbd9e09c75643b3c2214e2b2522bec39171a7"
 DEFAULT_MAX_TOKENS = 8192
 

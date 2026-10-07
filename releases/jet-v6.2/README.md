@@ -15,7 +15,7 @@ tags:
 **v6.2.0 · released 2026-09-26 · focused continuation, selected step 250.**
 Jet-4B, part of the [Jet](https://quaedra.com/jet) family, returns typed decisions and probabilities from supplied options without generating free-form answers.
 This is the **full merged BF16 model**, not an adapter, fine-tuned from Qwen3.5-4B. No separate
-base-model download is required. It replaces v6.1 in `michaljach/jet-4b`; previous
+base-model download is required. It replaces v6.1 in `quaedra/jet`; previous
 releases remain accessible by their version tags.
 
 ## Run
@@ -24,7 +24,7 @@ Linux + NVIDIA CUDA, Python 3.12. Verified with PyTorch 2.11.0+cu128,
 Transformers 5.17.0 and flash-linear-attention 0.5.2.
 
 ```sh
-hf download michaljach/jet-4b --revision v6.2.0 --local-dir jet-4b
+hf download quaedra/jet --revision v6.2.0 --local-dir jet-4b
 cd jet-4b
 python -m pip install -r requirements.txt
 python jet.py <<'JSON'

@@ -1,9 +1,9 @@
 """Upload explicitly selected deployment files; never choose paid hardware.
 
 Run using a Python environment with huggingface_hub installed:
-  python deploy/huggingface/deploy.py static --repo michaljach/jet-4b
+  python deploy/huggingface/deploy.py static --repo quaedra/jet
   python deploy/huggingface/deploy.py api --repo michaljach/jet-api
-  python deploy/huggingface/deploy.py zerogpu --repo michaljach/jet-4b
+  python deploy/huggingface/deploy.py zerogpu --repo quaedra/jet
 """
 import argparse
 import json
