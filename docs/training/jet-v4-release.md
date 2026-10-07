@@ -41,7 +41,7 @@ Index rebuild results are not an official leaderboard score.
 
 ## Upload
 
-`scripts/upload_release.py --model models/jet-v4 --repo michaljach/jet
+`scripts/upload_release.py --model models/jet-v4 --repo quaedra/jet
 --receipt release-logs/huggingface-receipt.json` checks every manifest hash,
 requires a passing ONNX reference check, and uploads an explicit file list in an
 atomic model-repository commit with a parent-revision guard. It does not select

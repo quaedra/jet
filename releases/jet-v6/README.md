@@ -28,7 +28,7 @@ This release contains the **full merged BF16 model**. It loads directly without 
 The model is trained for text decisions. It is not a general chat or image model.
 The previous Qwen3-0.6B release is preserved at revision
 `25ccbd9e09c75643b3c2214e2b2522bec39171a7` in this repository's history.
-Source code: [github.com/michaljach/jet](https://github.com/michaljach/jet) (release files under `releases/jet-v6/`).
+Source code: [github.com/quaedra/jet](https://github.com/quaedra/jet) (release files under `releases/jet-v6/`).
 
 ## Run
 
@@ -41,7 +41,7 @@ Download the versioned repository, install dependencies in a dedicated environme
 then run from that directory. Inference uses only the downloaded model files.
 
 ```sh
-hf download michaljach/jet --revision e5b8f610ddb92ffaba596ae452bed32a9fef49ca --local-dir jet
+hf download quaedra/jet --revision e5b8f610ddb92ffaba596ae452bed32a9fef49ca --local-dir jet
 cd jet
 python -m pip install -r requirements.txt
 python jet.py <<'JSON'

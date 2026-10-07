@@ -16,7 +16,7 @@ Jet selects typed answers from supplied options and returns probabilities withou
 **v6.1.0 · released 2026-09-25 · selected continuation checkpoint: step 2,000.**
 
 This is the **full merged BF16 model**, not an adapter. No separate base-model download is needed.
-It replaces v6.0.0 in the same `michaljach/jet` repository; the previous release is preserved as `v6.0.0`.
+It replaces v6.0.0 in the same `quaedra/jet` repository; the previous release is preserved as `v6.0.0`.
 The product name remains **Jet**. Architecture: Qwen3.5-4B text-only, `Qwen3_5ForCausalLM`.
 
 ## Run
@@ -24,7 +24,7 @@ The product name remains **Jet**. Architecture: Qwen3.5-4B text-only, `Qwen3_5Fo
 Linux + NVIDIA CUDA, Python 3.12. Tested with PyTorch 2.11.0+cu128 and Transformers 5.17.0.
 
 ```sh
-hf download michaljach/jet --revision v6.1.0 --local-dir jet
+hf download quaedra/jet --revision v6.1.0 --local-dir jet
 cd jet
 python -m pip install -r requirements.txt
 python jet.py <<'JSON'
@@ -127,8 +127,8 @@ Exact content/group exclusions do not establish semantic or pretraining decontam
 Generic synthetic response preferences are only a proxy for human consensus.
 Neither model nor calibration quality is guaranteed outside the evaluated domains.
 
-[Source and experiment records](https://github.com/michaljach/jet) ·
-[Detailed benchmark report](https://github.com/michaljach/jet/blob/main/experiments/jet-kev-comparison-20260925/results.md) ·
+[Source and experiment records](https://github.com/quaedra/jet) ·
+[Detailed benchmark report](https://github.com/quaedra/jet/blob/main/experiments/jet-kev-comparison-20260925/results.md) ·
 [Charts](https://jach.me/jet/)
 
 Apache-2.0 model/runtime; source datasets retain their own licenses. Dataset rows are not redistributed here.

@@ -2,7 +2,7 @@
 
 Checkpoint: step 3,750 of a fresh rank-16 LoRA on `Qwen/Qwen3.5-4B` (base revision
 `851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a`), merged into bf16 weights. Published to
-[michaljach/jet](https://huggingface.co/michaljach/jet) at commit
+[quaedra/jet](https://huggingface.co/quaedra/jet) at commit
 `e5b8f610ddb92ffaba596ae452bed32a9fef49ca`; the model card was later updated to pin
 revisions by commit (`5dd7e40c`), with weights unchanged. The release tags were removed
 and the repository keeps only `main`. The last Qwen3-0.6B files remain at `25ccbd9e`.

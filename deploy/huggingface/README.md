@@ -75,9 +75,9 @@ questions with a maximum of 4096 prompt tokens per question.
 Authenticate using `hf auth login` (never put tokens in source files), then:
 
 ```sh
-python deploy/huggingface/deploy.py static --repo michaljach/jet-status
+python deploy/huggingface/deploy.py static --repo quaedra/jet-status
 # Only once the account is eligible for CPU Basic Spaces:
-python deploy/huggingface/deploy.py api --repo michaljach/jet-api
+python deploy/huggingface/deploy.py api --repo quaedra/jet-api
 ```
 
 The upload script uses an explicit file list and only requests `cpu-basic` for

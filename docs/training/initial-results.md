@@ -1,7 +1,7 @@
 # Initial training results
 
 
-The released model is `jet` (`adapters/jet`, `models/jet`, and [michaljach/jet](https://huggingface.co/michaljach/jet)
+The released model is `jet` (`adapters/jet`, `models/jet`, and [quaedra/jet](https://huggingface.co/quaedra/jet)
 on Hugging Face). It is Qwen3-0.6B trained on `train_v2` (public data plus varied-scale score questions,
 no Claude distillation yet) on an RTX 4080: 2 epochs, 2,910 steps, best checkpoint at step 2,750 by
 validation NLL (0.485), then calibrated and fused. A Qwen3-1.7B variant was trained the same way for
@@ -53,7 +53,7 @@ rule-following or knowledge questions. Kev's policy and rule families are exactl
 distillation is meant to add.
 
 ```sh
-uv run jet-bench-kev --base-model michaljach/jet --name jet      # → docs/bench/kev-transfer-v4/jet.json
+uv run jet-bench-kev --base-model quaedra/jet --name jet      # → docs/bench/kev-transfer-v4/jet.json
 uv run jet-bench-kev --name qwen3-0.6b-untrained                 # untrained baseline
 uv sync --extra plot && uv run jet-plot-kev                       # → docs/jet-vs-kev.png
 ```
