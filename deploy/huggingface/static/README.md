@@ -20,4 +20,4 @@ and `/decide` API. The `api/` directory contains the CPU Docker deployment for
 `POST /v1/decide`; see `DEPLOYMENT.md`. Hosting is currently blocked by Hugging
 Face account-plan requirements. No paid resources have been enabled.
 
-Source: https://github.com/quaedra/jet-4b
+Source: https://github.com/quaedra/jet

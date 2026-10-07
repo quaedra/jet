@@ -1,6 +1,6 @@
-# Jet-4B training history
+# Jet training history
 
-Jet-4B is the v6 line. Versions up to V5 were smaller 0.6B models released as Jet;
+Jet-4B is the v6 line. Versions up to V5 were smaller 0.6B Jet models;
 Jet-4B continues their prompt format and data. Those runs use Qwen3-0.6B unless
 stated otherwise. Results depend on the
 specified splits and inference backend; partial benchmark samples are not official

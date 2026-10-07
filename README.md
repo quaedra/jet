@@ -1,12 +1,12 @@
-# Jet-4B
+# Jet
 
-Jet-4B is a typed decision model. Give it a state and named,
+Jet is a family of typed decision models; Jet-4B (v6.2) is the current one. Give it a state and named,
 typed questions; it returns choices, scores, and probabilities without generating
 free-form text. Answers always follow the requested type, but decisions can still
 be wrong.
 
-[Website](https://quaedra.com/jet-4b) ·
-[Docs](https://quaedra.com/jet-4b/docs/) ·
+[Website](https://quaedra.com/jet) ·
+[Docs](https://quaedra.com/jet/docs/) ·
 [Model weights](https://huggingface.co/michaljach/jet-4b) ·
 [Training history](TRAINING_HISTORY.md) ·
 [Training run records](experiments/jet-focused-20260925/README.md)
@@ -35,7 +35,7 @@ training pipeline in this repository run the earlier 0.6B releases (Jet v5 and b
 one is kept in the model repository's history at revision `25ccbd9e`:
 
 ```sh
-git clone https://github.com/quaedra/jet-4b
+git clone https://github.com/quaedra/jet
 cd jet
 uv sync                  # Apple Silicon / Metal
 # Linux with NVIDIA: uv sync --extra cuda

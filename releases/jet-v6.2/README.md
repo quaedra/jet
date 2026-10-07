@@ -13,7 +13,7 @@ tags:
 # Jet-4B
 
 **v6.2.0 · released 2026-09-26 · focused continuation, selected step 250.**
-Jet-4B returns typed decisions and probabilities from supplied options without generating free-form answers.
+Jet-4B, part of the [Jet](https://quaedra.com/jet) family, returns typed decisions and probabilities from supplied options without generating free-form answers.
 This is the **full merged BF16 model**, not an adapter, fine-tuned from Qwen3.5-4B. No separate
 base-model download is required. It replaces v6.1 in `michaljach/jet-4b`; previous
 releases remain accessible by their version tags.
@@ -102,7 +102,7 @@ index maintainers on the full suite (110,201 requests, 42 benchmarks; 243 reques
 exceed the 16,384-token prompt limit): public 42.17, same skills 40.93, new domains
 34.46. Within the index's tie band of the other entries on the same 4B base. Strongest in
 Tools & Automation (62.9), weakest in Knowledge & Reasoning (25.4); 66.0% accurate at
-80.1% mean confidence (ECE 0.141). [Details](https://quaedra.com/jet-4b/docs/decision-index) ·
+80.1% mean confidence (ECE 0.141). [Details](https://quaedra.com/jet/docs/decision-index) ·
 [Leaderboard](https://huggingface.co/spaces/multimodalart/jev-decision-index)
 
 The earlier 25-benchmark comparison belongs to the v6.1 candidate and must not be
@@ -120,11 +120,11 @@ These checks include choice, score, noul and a long API-Bank input. The full
 914-case holdout passed the predeclared release guards. See evaluation.json,
 merge-validation.json and release-manifest.json. Merge equivalence is approximate.
 
-[Website](https://quaedra.com/jet-4b) ·
-[Docs](https://quaedra.com/jet-4b/docs/) ·
-[Source and experiment records](https://github.com/quaedra/jet-4b) ·
-[Training protocol](https://github.com/quaedra/jet-4b/blob/main/experiments/jet-focused-20260925/protocol.md) ·
-[Release validation](https://github.com/quaedra/jet-4b/blob/main/experiments/jet-release-20260926/protocol.md)
+[Website](https://quaedra.com/jet) ·
+[Docs](https://quaedra.com/jet/docs/) ·
+[Source and experiment records](https://github.com/quaedra/jet) ·
+[Training protocol](https://github.com/quaedra/jet/blob/main/experiments/jet-focused-20260925/protocol.md) ·
+[Release validation](https://github.com/quaedra/jet/blob/main/experiments/jet-release-20260926/protocol.md)
 
 Apache-2.0 model/runtime; source datasets retain their own licenses. Dataset rows
 are not redistributed here. Quality outside the evaluated domains is not established.
