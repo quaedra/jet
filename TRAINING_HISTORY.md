@@ -1,6 +1,8 @@
-# Jet training history
+# Jet-4B training history
 
-All runs below use Qwen3-0.6B unless stated otherwise. Results depend on the
+Jet-4B is the v6 line. Versions up to V5 were smaller 0.6B models released as Jet;
+Jet-4B continues their prompt format and data. Those runs use Qwen3-0.6B unless
+stated otherwise. Results depend on the
 specified splits and inference backend; partial benchmark samples are not official
 Decision Index scores. Historical reports use “released Jet” to mean the model
 published at the time of that experiment, not necessarily today's release.
@@ -70,7 +72,7 @@ Its files remain at model-repository revision
 `25ccbd9e09c75643b3c2214e2b2522bec39171a7`. Export and publication receipts are
 recorded in [release notes](docs/training/jet-v5-release.md).
 
-## V6 — Qwen3.5-4B — 2026-09-24
+## V6 — Jet-4B — 2026-09-24
 
 Moved the backbone to Qwen3.5-4B with a fresh rank-16 LoRA (learning rate `1e-4`)
 trained with PyTorch/PEFT on the same 15,997-row `train_v5_r2` mixture, one epoch /
@@ -90,7 +92,7 @@ Superseded by v6.1 below.
 The released model continues from the full merged v6 backbone with a correction
 LoRA on 22,643 examples. Validation selected step 2,000 of 5,661. Two later repair
 trials were rejected by their sarcasm/retention guards and were not released.
-The release is a complete merged BF16 model in the existing `michaljach/jet`
+The release is a complete merged BF16 model in the existing `michaljach/jet-4b`
 repository, with the product name Jet. The previous release is archived as v6.0.0.
 
 The broad development evaluation covers 25 benchmarks and 67,459 requests,

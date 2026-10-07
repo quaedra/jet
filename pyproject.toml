@@ -1,7 +1,7 @@
 [project]
 name = "jet"
 version = "6.0.0"
-description = "Train, evaluate and serve Jet, a typed, calibrated decision model (choice / score / noul)"
+description = "Train, evaluate and serve Jet-4B, a typed, calibrated decision model (choice / score / noul)"
 readme = "README.md"
 authors = [
     { name = "Michal Jach", email = "michaljach@gmail.com" }

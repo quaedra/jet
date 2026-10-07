@@ -2,7 +2,7 @@
 
 ## Current status — 2026-09-24
 
-The personal Space `michaljach/jet` has been switched from Docker to Gradio
+The personal Space `michaljach/jet-4b` has been switched from Docker to Gradio
 (commit `7f7027ad488fb78af754adb65a9d5d6dc15da412`). The server-side ZeroGPU
 app, requirements and PyTorch inference source are uploaded. Hardware selection
 is still blocked: the signed-in ZeroGPU confirmation dialog says
@@ -15,11 +15,11 @@ personal account’s ZeroGPU eligibility, rather than its Docker CPU quota.
 ## Current status — 2026-09-23
 
 The model repository and its weights/tokenizer/calibration were also transferred to
-https://huggingface.co/michaljach/jet; the pinned revision is unchanged.
+https://huggingface.co/michaljach/jet-4b; the pinned revision is unchanged.
 
 Following Hugging Face support’s advice, the existing Space was transferred from
-`jach-labs/jet` to `michaljach/jet`. The CPU Docker API is uploaded at
-https://huggingface.co/spaces/michaljach/jet with CPU Basic requested and
+`jach-labs/jet` to `michaljach/jet-4b`. The CPU Docker API is uploaded at
+https://huggingface.co/spaces/michaljach/jet-4b with CPU Basic requested and
 `JET_CORS_ORIGINS=https://jach.me,https://michaljach-jet.hf.space`.
 
 Hosting remains blocked: runtime is PAUSED with
@@ -38,7 +38,7 @@ on the server. The queued Gradio API is `/decide` (see its README for a client
 example); the separate Docker variant below exposes `/v1/decide`.
 
 ```sh
-python deploy/huggingface/deploy.py zerogpu --repo michaljach/jet
+python deploy/huggingface/deploy.py zerogpu --repo michaljach/jet-4b
 ```
 
 This explicitly requests only `zero-a10g`, never a paid GPU. On 2026-09-23,
@@ -61,7 +61,7 @@ hourly hardware charge, but Hugging Face rejected creation on this account with
 HTTP 402 (a PRO plan is required for personal Docker Spaces; Team/Enterprise for
 organization Spaces). ZeroGPU creation was also rejected. No plan was purchased.
 
-The server uses `michaljach/jet` at revision
+The server uses `michaljach/jet-4b` at revision
 `25ccbd9e09c75643b3c2214e2b2522bec39171a7` (the last Qwen3-0.6B release, V5), its
 q8 ONNX weights and calibration. The current v6 model is 4B and CUDA-only, so it
 does not fit this runtime. The smaller runtime does not require MLX, PyTorch, or a

@@ -7,7 +7,7 @@ if [[ -n "${1:-}" ]]; then while kill -0 "$1" 2>/dev/null; do sleep 10; done; fi
 [[ -f docs/training/jet-next/isarcasm-en-v4.json ]]
 for name in baseline v3 warm v4; do
   if [[ "$name" == baseline ]]; then
-    ARGS=(--option model=michaljach/jet --option revision=8a97cfea2df622bb03f5dc9b02567e21abd2551c)
+    ARGS=(--option model=michaljach/jet-4b --option revision=8a97cfea2df622bb03f5dc9b02567e21abd2551c)
   else
     case "$name" in
       v3) RUN=adapters/jet-v3-decision-20260923;;

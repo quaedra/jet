@@ -29,7 +29,7 @@ def digest(path: Path) -> str:
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--release', type=Path, default=DEFAULT_RELEASE)
-    ap.add_argument('--repo', default='michaljach/jet')
+    ap.add_argument('--repo', default='michaljach/jet-4b')
     ap.add_argument('--version', required=True)
     ap.add_argument('--message', default=None, help='commit message')
     ap.add_argument('--dry-run', action='store_true', help='print the commit without writing anything remote')

@@ -1,13 +1,13 @@
-# Jet
+# Jet-4B
 
-Jet is a typed decision model built on **Qwen3.5-4B** (v6.2). Give it a state and named,
+Jet-4B is a typed decision model. Give it a state and named,
 typed questions; it returns choices, scores, and probabilities without generating
 free-form text. Answers always follow the requested type, but decisions can still
 be wrong.
 
-[Website](https://quaedra.com/jet) ·
-[Docs](https://quaedra.com/jet/docs/) ·
-[Model weights](https://huggingface.co/michaljach/jet) ·
+[Website](https://quaedra.com/jet-4b) ·
+[Docs](https://quaedra.com/jet-4b/docs/) ·
+[Model weights](https://huggingface.co/michaljach/jet-4b) ·
 [Training history](TRAINING_HISTORY.md) ·
 [Training run records](experiments/jet-focused-20260925/README.md)
 
@@ -19,27 +19,27 @@ be wrong.
 
 ## Run locally
 
-**Jet v6.2 (Linux + NVIDIA CUDA).** The Hugging Face release is self-contained: it
+**Jet-4B v6.2 (Linux + NVIDIA CUDA).** The Hugging Face release is self-contained: it
 ships the merged bf16 weights with the runtime from [`releases/jet-v6.2/`](releases/jet-v6.2/) and
 `src/format.py` / `src/inference.py`.
 
 ```sh
-hf download michaljach/jet --revision v6.2.0 --local-dir jet
-cd jet
+hf download michaljach/jet-4b --revision v6.2.0 --local-dir jet-4b
+cd jet-4b
 python -m pip install -r requirements.txt
 echo '{"state":"I was charged twice this month.","questions":{"billing":{"type":"noul","instructions":"Is this a billing issue?"}}}' | python jet.py
 ```
 
 **MLX server (Apple Silicon, or Linux via MLX CUDA).** The HTTP server and the
-training pipeline in this repository run the earlier Qwen3-0.6B releases. The last
+training pipeline in this repository run the earlier 0.6B releases (Jet v5 and before). The last
 one is kept in the model repository's history at revision `25ccbd9e`:
 
 ```sh
-git clone https://github.com/quaedra/jet
+git clone https://github.com/quaedra/jet-4b
 cd jet
 uv sync                  # Apple Silicon / Metal
 # Linux with NVIDIA: uv sync --extra cuda
-hf download michaljach/jet --revision 25ccbd9e09c75643b3c2214e2b2522bec39171a7 --local-dir models/jet-0.6b
+hf download michaljach/jet-4b --revision 25ccbd9e09c75643b3c2214e2b2522bec39171a7 --local-dir models/jet-0.6b
 JET_API_KEY=secret uv run jet-serve --base-model models/jet-0.6b
 ```
 
@@ -50,7 +50,7 @@ curl http://localhost:8000/v1/decide \
   -d '{"state":"I was charged twice this month.","questions":{"topic":{"type":"choice","instructions":"What is the primary issue?","criteria":{"billing":"billing or payment problem","bug":"the product is broken"}},"escalate":{"type":"noul","instructions":"Does this require human support?"}}}'
 ```
 
-The model requires Jet's prompt format and label-token readout. It is not a chat
+The model requires Jet-4B's prompt format and label-token readout. It is not a chat
 model. The MLX server shares the state prefix across questions, applies the saved
 calibration temperatures, and returns typed answers. Serving truncates long states
 in the middle; the Decision Index adapter instead requires complete inputs.
@@ -92,10 +92,11 @@ flowchart TB
     fuse --> prompt
 ```
 
-Each answer option maps to a single token. Jet reads the next-token logits only
+Each answer option maps to a single token. Jet-4B reads the next-token logits only
 for those labels and applies softmax with a temperature fitted on held-out data.
 Standard serving uses one forward pass per question, without sampling.
-The fused bf16 weights include the trained LoRA updates.
+The fused bf16 weights include the trained LoRA updates. Since v6, the backbone is
+Qwen3.5-4B; v5 and earlier used Qwen3-0.6B.
 
 The benchmark package also provides `decision_index_ensemble:TwoOrderJetEngine`.
 It averages original and reversed option-order probabilities using exact option
@@ -104,14 +105,14 @@ standard serving API.
 
 ## Training and evaluation
 
-Jet v6.2.0 is the full merged step-250 continuation of released Jet v6.1.
+Jet-4B v6.2.0 is the full merged step-250 continuation of released v6.1.
 Two 1,000-update rank-16 LoRA trials used 4,000 examples, split evenly between
 banking/entity sentiment/sarcasm and broad retention. Validation selected the
 3e-6 trial at step 250; the higher-rate trial failed its regression guards.
 
 The standalone merged model was evaluated on the same frozen 914-case holdout:
 
-| Local holdout | Jet v6.1 | Jet v6.2 merged |
+| Local holdout | v6.1 | v6.2 merged |
 |---|---:|---:|
 | Banking accuracy | 74.68 | 74.68 |
 | Entity sentiment macro-F1 | 71.16 | 71.21 |
@@ -135,7 +136,7 @@ its BF16 merge**, not v6.2. It includes 23 full available reconstructions and tw
 retrieval samples against archived Decision Index 0.1 reference scores. Matching
 metrics and counts do not establish identical cases.
 
-**Decision Index 0.3 (official, 2026-10-07):** Jet v6.2 scores **40.01**, rank 52 of
+**Decision Index 0.3 (official, 2026-10-07):** Jet-4B v6.2 scores **40.01**, rank 52 of
 113, run by the index maintainers on the full 110,201-request suite (public 42.17,
 same skills 40.93, new domains 34.46). Details in [docs/decision-index.md](docs/decision-index.md).
 
@@ -160,7 +161,7 @@ The Space code serves the last Qwen3-0.6B release (V5, revision `25ccbd9e`) and 
 `/decide`; its availability depends on Hugging Face's free hosting quota. See
 [deployment instructions](deploy/huggingface/README.md).
 
-To cut a new release from a Qwen3.5-4B adapter (Linux + CUDA), merge it into the
+To cut a new release from a Jet-4B adapter (Linux + CUDA), merge it into the
 release folder, check it against the adapter's saved logits, then publish:
 
 ```sh

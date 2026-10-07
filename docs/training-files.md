@@ -14,7 +14,7 @@ removed duplicate helpers and the Git blobs needed to recover them.
 
 Weights, adapters, optimizer checkpoints, reconstructed datasets, raw prediction
 outputs, logs and caches stay outside Git. Published full weights live in
-[michaljach/jet](https://huggingface.co/michaljach/jet). Local adapters and
+[michaljach/jet-4b](https://huggingface.co/michaljach/jet-4b). Local adapters and
 checkpoints remain in adapters/; this audit does not delete them or publish them.
 Never commit credentials or tokens.
 

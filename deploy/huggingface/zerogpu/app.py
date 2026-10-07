@@ -70,8 +70,8 @@ The model runs on Hugging Face's servers. Your browser sends inputs and displays
     gr.Examples(EXAMPLES, inputs=[state, questions], label="Examples")
     gr.Markdown("ZeroGPU requests are queued and subject to Hugging Face usage quotas. "
                 "Use **View API** for the `/decide` endpoint. "
-                "[Model](https://huggingface.co/michaljach/jet) · "
-                "[Source](https://github.com/michaljach/jet)")
+                "[Model](https://huggingface.co/michaljach/jet-4b) · "
+                "[Source](https://github.com/quaedra/jet-4b)")
     run.click(decide, inputs=[state, questions], outputs=output,
               api_name="decide", concurrency_limit=1)
 
