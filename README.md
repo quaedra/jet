@@ -34,7 +34,7 @@ training pipeline in this repository run the earlier Qwen3-0.6B releases. The la
 one is kept in the model repository's history at revision `25ccbd9e`:
 
 ```sh
-git clone https://github.com/michaljach/jet
+git clone https://github.com/quaedra/jet
 cd jet
 uv sync                  # Apple Silicon / Metal
 # Linux with NVIDIA: uv sync --extra cuda
@@ -132,8 +132,11 @@ benchmark score remains unmeasured.
 The earlier 25-benchmark comparison measures the **v6.1 step-2,000 adapter before
 its BF16 merge**, not v6.2. It includes 23 full available reconstructions and two
 retrieval samples against archived Decision Index 0.1 reference scores. Matching
-metrics and counts do not establish identical cases. **No official overall
-Decision Index has been measured for Jet.**
+metrics and counts do not establish identical cases.
+
+**Decision Index 0.3 (official, 2026-10-07):** Jet v6.2 scores **40.01**, rank 52 of
+113, run by the index maintainers on the full 110,201-request suite (public 42.17,
+same skills 40.93, new domains 34.46). Details in [docs/decision-index.md](docs/decision-index.md).
 
 [Historical v6.1 benchmark report](experiments/jet-kev-comparison-20260925/results.md) ·
 [Current full-model results](releases/jet-v6.2/evaluation.json) ·

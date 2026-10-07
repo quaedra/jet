@@ -127,4 +127,8 @@ The 157 merge-verification cases had no argmax flips and at most 4.76 percentage
 points of probability drift. The standalone runtime now accepts 16,384-token
 complete prompts and passed the longest API-Bank input (11,495 tokens).
 Calibration is inherited from v6.1, not refitted. Previous benchmark charts remain
-explicitly attributed to v6.1; no official overall Decision Index is available.
+explicitly attributed to v6.1.
+
+Decision Index 0.3 (published 2026-10-07) measured v6.2 officially: **40.01**, rank 52
+of 113; public 42.17, same skills 40.93, new domains 34.46. See
+[the Decision Index notes](docs/decision-index.md).

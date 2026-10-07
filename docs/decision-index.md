@@ -2,8 +2,42 @@
 
 Jet is evaluated with the official [Decision Index](https://huggingface.co/spaces/multimodalart/jev-decision-index)
 runner (`decision_index`, pinned to commit `52a698928a9ae5bdf16b75687c903871db29c6e5`
-in the `benchmark` extra). **No official overall Decision Index score has been
-measured for any Jet version.** Results so far are sampled or partial diagnostics.
+in the `benchmark` extra).
+
+## Official result: Decision Index 0.3
+
+Jet v6.2 is on the [Decision Index 0.3](https://huggingface.co/spaces/multimodalart/jev-decision-index)
+leaderboard (edition generated 2026-10-07), run by the index maintainers on the full suite:
+110,201 requests across 42 benchmarks, of which Jet answered 109,958. The other 243
+exceed its 16,384-token prompt limit and count as unanswered.
+
+| | Score | Rank |
+|---|---:|---:|
+| **Decision Index 0.3** | **40.01** | 52 of 113 |
+| Public benchmarks (20%) | 42.17 | 43 |
+| Same skills (50%) | 40.93 | |
+| New domains (30%) | 34.46 | |
+
+The index weights the three parts 20/50/30 after equating each across models, so it isn't
+a plain weighted sum of the part scores above. Scores within the index's 0.9-point tie band
+are tied; Jet's is. Nearby
+Qwen3.5-4B-class entries: Hopper (G) 1.2 42.61, JPT-4B 41.63, Kev 4B r10 39.50,
+InternLM Intern-Decision 38.21.
+
+| Area | Skill score |
+|---|---:|
+| Tools & Automation | 62.9 |
+| Retrieval & Classification | 48.2 |
+| Language Understanding | 44.2 |
+| Arts & Human Taste | 30.2 |
+| Knowledge & Reasoning | 25.4 |
+
+Calibration on the index's scored cases: 66.0% accurate at 80.1% mean confidence
+(ECE 0.141), so Jet is overconfident, most of all in Knowledge & Reasoning and Arts.
+New domains is the weakest of the three parts.
+
+The sections below cover running the index yourself. Self-run results are sampled or
+partial diagnostics, not official scores.
 
 ## Engines
 
@@ -55,7 +89,7 @@ and code fixed within one output directory, and use a new directory per backend.
 Run the compatibility file before a full run. Use only the official scorer, and keep
 complete source groups, exclusions, full denominators, and track and macro weights.
 
-## Results
+## Earlier diagnostics
 
 - **Jet v6 / Qwen3.5-4B:** 1,900 sampled requests across 15 datasets, with zero
   errors or unsupported requests. The comparison with published entrants is in
@@ -67,7 +101,7 @@ complete source groups, exclusions, full denominators, and track and macro weigh
   `docs/bench/decision-index/coverage.json`; `diagnostic-8k.json` is an incomplete
   snapshot of a run that was stopped early.
 
-## Blockers to an overall score
+## Blockers to a self-run overall score
 
 - `multimodalart/decision-index-suite` returns HTTP 404
   ([apolinario/decision-index#1](https://github.com/apolinario/decision-index/issues/1)).
